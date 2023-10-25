@@ -1,0 +1,490 @@
+/* Variables globales */
+:root {
+  --main-bg-color: #f4f4f4;
+  --main-font: 'mont', sans-serif;
+  --button-color: #0099cc;
+  --text-color: #333;
+  --header-bg: linear-gradient(135deg, #71b7e6, #9b59b6);
+}
+
+/* Estilos generales */
+body {
+  font-family: var(--main-font);
+  margin: 0;
+  padding: 0;
+  background-color: var(--main-bg-color);
+  line-height: 1.6;  /* Mejora la legibilidad del texto */
+}
+
+
+header {
+  background-image: var(--header-bg);
+  color: #ffffff;
+  text-align: center;
+  padding: 1rem 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin: 0;
+  padding: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+#weatherIcon {
+  width: 100px;  /* O el tamaño que prefieras */
+  height: auto;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: linear-gradient(135deg,#f5f7fa, #c3cfe2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  margin-top: 5%;
+}
+
+h2 {
+  text-align: center;
+}
+
+footer {
+  text-align: center;
+  margin-top: 1rem;
+  color: #555;
+  font-size: 14px;
+}
+
+/* Estilos de la sección de búsqueda */
+.search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+#weatherInfo{
+  text-align: center;
+
+}
+
+.forecast-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; /* Si los elementos deben estar en una columna */
+}
+
+#locationInput {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  font-size: 16px;
+  width: 70%;
+  transition: border 0.3s ease-in-out;
+}
+
+#locationInput:focus {
+  border: 1px solid var(--button-color);
+}
+
+/*ESTILO DE button*/
+#searchButton {
+  background-color: var(--button-color);
+  color: #fff;
+  border: none;
+  border-radius: 15px;
+  padding: 0.5rem 1rem;
+  margin-left: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s, transform 0.3s ease-in-out;
+}
+
+#searchButton:hover , #searchButton:focus{
+  background-color: #45a049;
+  transform: scale(1.05);
+  
+}
+
+
+#geolocationButton{
+  background-color: var(--button-color);
+  color: #fff;
+  border: none;
+  border-radius: 15px;
+  padding: 0.5rem 1rem;
+  margin-left: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s, transform 0.3s ease-in-out;
+}
+
+#geolocationButton:hover , #searchButton:focus {
+  background-color: #45a049;
+  transform: scale(1.05);
+}
+
+
+
+/* Estilos para el menú desplegable */
+#temperatureUnit {
+  padding: 5px;
+  font-size: 13px;
+  border: 2px solid #007BFF;
+  border-radius: 5px;
+  background-color: white;
+  color: #007BFF;
+  cursor: pointer;
+  transition: border-color 0.3s, color 0.3s, background-color 0.3s;
+}
+
+#temperatureUnit:focus {
+  outline: none;
+  border-color: #0056b3;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+#temperatureUnit:hover {
+  border-color: #0056b3;
+  color: #0056b3;
+}
+
+/* Estilos para el label */
+label {
+  font-size: 16px;
+  color: #494949;
+  margin-right: 8px;
+  margin-left: 8px;
+  padding-left: 8px;
+  border-radius: 5px;
+}
+
+/* Estilos para el contenedor (puedes ajustar según tu diseño) */
+.container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+
+
+/* Estilo del interruptor */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 48px; 
+  height: 55px; 
+  margin-left: 15px;
+  vertical-align: middle; 
+  margin-right: auto;
+  
+  
+}
+
+/* Ocultar el input por defecto */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Estilo del slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #e28e8e;
+  transition: .4s;
+  border-radius: 34px;
+  
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 28px;
+  width: 28px;
+  left: 0px;
+  bottom: 0px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #45a049;
+  
+ 
+}
+
+input:checked + .slider:before {
+  transform: translateY(-31px);
+}
+
+/* Efecto de transición */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+
+
+#shareButtons {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+
+
+#shareButtons button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+
+#shareButtons button:hover {
+  background-color: #0056b3;
+}
+
+#shareButtons .facebook-button {
+  background-color: #3b5998;
+}
+
+#shareButtons .twitter-button {
+  background-color: #1da1f2;
+}
+
+#shareButtons .facebook-button:hover {
+  background-color: #2d4373;
+}
+
+#shareButtons .twitter-button:hover {
+  background-color: #0c85d0;
+}
+
+
+
+#shareButtons .facebook-button {
+  background-color: #3b5998;
+}
+
+#shareButtons .twitter-button {
+  background-color: #1da1f2;
+}
+
+#shareButtons .facebook-button:hover {
+  background-color: #2d4373;
+}
+
+#shareButtons .twitter-button:hover {
+  background-color: #0c85d0;
+}
+
+
+#weatherChart {
+  margin: 0 auto;
+}
+
+
+
+/* Contenedor para todos los pronósticos por hora */
+#hourlyForecast {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding: 20px;
+  gap: 20px;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+}
+
+/* Estilos para cada elemento de pronóstico por hora */
+.hourly-forecast-item {
+  flex: 0 0 auto;
+  width: 150px;
+  padding: 15px;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  text-align: center;
+}
+
+/* Estilos para el tiempo en cada elemento de pronóstico por hora */
+.hourly-time {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Estilos para la temperatura y las condiciones en cada elemento de pronóstico por hora */
+.hourly-forecast-item p {
+  margin: 5px 0;
+  font-size: 16px;
+}
+
+
+.air-quality {
+  text-align: center;
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: #f3f4f6;
+  border-radius: 8px;
+}
+
+/* Estilos para el modo oscuro */
+
+body.dark-mode {
+  background-color: #121212;
+  color: #292929;
+}
+
+header.dark-mode {
+  background-image: linear-gradient(135deg, #333, #111);
+}
+
+main.dark-mode {
+  background: linear-gradient(135deg, #333, #111);
+}  
+
+
+/* Estilos de la sección de clima */
+.weather {
+  background: linear-gradient(135deg, #acc1e0, #d3dbe9);
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+#headerGif {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+}
+
+.details {
+  margin-top: 2rem;
+}
+
+.details p {
+  margin: 0.5rem 0;
+  font-size: 18px;
+  color: var(--text-color);
+}
+
+/* Contenedor para todos los pronósticos extendidos */
+#forecast {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 20px;
+  gap: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  scrollbar-width: thin;
+}
+
+/* Estilos para cada elemento de pronóstico extendido */
+.forecast-item {
+  flex: 0 0 auto;
+  width: 110px;
+  padding: 15px;
+  background-color: #f5f4f4;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  text-align: center;
+  white-space: normal;
+}
+
+/* Estilos para el día en cada elemento de pronóstico extendido */
+.forecast-day {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Estilos para la temperatura y las condiciones en cada elemento de pronóstico extendido */
+.forecast-item p {
+  margin: 5px 0;
+  font-size: 16px;
+}
+
+/* Estilos para el scrollbar (opcional) */
+#forecast::-webkit-scrollbar {
+  height: 8px;
+}
+
+#forecast::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+#forecast::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+
+
+/* Estilos de responsividad */
+
+/* Estilos para smartphones */
+@media (max-width: 767px) {
+  .search input,
+  .search button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+/* Estilos para tablets y mayores */
+@media (min-width: 768px) {
+  .search {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .search input,
+  .search button {
+    width: 48%; /* Ajustar según necesidad */
+  }
+}
+/* Estilos para pantallas grandes */
+@media (min-width: 1200px) {
+  main {
+    max-width: 1200px; /* Aumentar el ancho máximo */
+  }
+
+  .search input,
+  .search button {
+    width: 30%;
+  }
+
+#hourlyForecast,
+  #forecast {
+    gap: 30px;
+  }
+
+.hourly-forecast-item,
+  .forecast-item {
+    width: 200px;
+
+  }
+}
