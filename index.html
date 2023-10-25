@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>App WEATHER</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Aplicacion del clima" />
+  <link rel="stylesheet" type="text/css" href="css/estilos.css" />
+  <link rel="icon" href="favicon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#fafafa">
+  
+
+</head>
+
+
+<body>
+  
+  <header>
+    <h1>Aplicación de Clima</h1>
+    <div class="icon"><img id="headerGif" src="img/3IsN.gif" alt="Icono del clima"></div> 
+</header>
+
+<main>
+    <section class="search">
+        <input type="text" id="locationInput" placeholder="Ingresa la Ciudad">
+        <button id="searchButton">Buscar</button>
+        <button id="geolocationButton">Ubicación Actual</button>
+     <!--   <button id="toggleDarkMode">Modo Oscuro</button> --> 
+     <label for="temperatureUnit">Unidad de Temperatura:</label>
+    
+     <select id="temperatureUnit">
+      <option value="Celsius">Celsius</option>
+      <option value="Fahrenheit">Fahrenheit</option>
+    </select>
+
+        <label class="switch">
+      <input type="checkbox" id="toggleDarkMode">
+      <span class="slider round"></span>
+    </label>
+</section>
+
+    <div class="error" id="errorText"></div>
+    <section class="weather">
+        <h2>El clima en <span id="locationName">Ciudad</span></h2>
+        <div id="weatherInfo">
+          
+            <div class="icon"><img id="weatherIcon" src="img/P2D.gif" alt="Clima GIF"></div> 
+           
+            
+            <div class="details">
+                <p>Temperatura: <span id="temperature">--</span><span id="temperatureUnitDisplay">°C</span></p>
+                <p>Condiciones: <span id="conditions">--</span></p>
+                <p>Humedad: <span id="humidity">--</span>%</p>
+                <p>Viento: <span id="windSpeed">--</span> km/h</p>
+                <p>Presión: <span id="pressure">--</span> hPa</p>
+                <p>Visibilidad: <span id="visibility">--</span> m</p>
+                <p>Índice UV: <span id="uvIndex">--</span></p>
+            </div>
+        </div>
+
+        <div class="chart-container">
+          <canvas id="weatherChart"></canvas>
+        </div>
+
+        <div>
+          <h2>Pronóstico por Horas</h2>
+        </div>
+        <div class="hourly-forecast" id="hourlyForecast">
+             
+          <!-- Aquí se insertarán los elementos del pronóstico por horas -->
+       
+        </div>
+        <div class="forecast" id="forecastContainer">
+          <h2>Pronóstico Extendido</h2>
+          <div id="forecastDays" class="forecast-days"></div> <!-- Contenedor para los nombres de los días -->
+          <div id="forecast" class="forecast-items"></div>
+      </div>
+
+      <div class="air-quality" id="airQualityContainer">
+        <h2>Calidad del Aire</h2>
+        <p>Índice AQI: <span id="aqi">--</span></p>
+        <p>PM2.5: <span id="pm25">--</span> µg/m³</p>
+        <p>PM10: <span id="pm10">--</span> µg/m³</p>
+        <!-- ... otros contaminantes si los desea -->
+      </div>
+    </section>
+    <div id="shareButtons">
+      <button class="facebook-button" onclick="shareOnFacebook()">Compartir en Facebook</button>
+      <button class="twitter-button" onclick="shareOnTwitter()">Compartir en Twitter</button>
+      <!-- Agregar más botones de compartir aquí -->
+    </div>
+</main>
+
+  <footer>
+    <small>© <script>document.write(new Date().getFullYear())</script> R3allab. All Rights Reserved.</small>
+  </footer>
+  
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
